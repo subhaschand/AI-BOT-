@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #e7e4e454;
+  --foreground: #f6f2f2b7;
+  --user-bg: #007bff; 
+  --assistant-bg: #f0f0f0; 
+  --user-text-color: #ffffff;
+  --assistant-text-color: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fcf8f834;
+    --foreground: #989292;
+    --user-bg: #0056b3;
+    --assistant-bg: #333333;
+    --user-text-color: #ffffff;
+    --assistant-text-color: #f0f0f0;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 768px;
+  margin: auto;
+  padding: 20px;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+
+.chat-message {
+  display: flex;
+  margin-bottom: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.chat-message.user {
+  background-color: var(--user-bg);
+  color: var(--user-text-color);
+  align-self: flex-end; 
+}
+
+.chat-message.assistant {
+  background-color: var(--assistant-bg);
+  color: var(--assistant-text-color);
+  align-self: flex-start; 
+}
+
+
+.chat-input-container {
+  display: flex;
+  gap: 30px;
+}
+
+.chat-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #110101ec;
+  border-radius: 4px;
+}
+
+.chat-submit-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chat-submit-btn:disabled {
+  background-color: #aaa;
+}
